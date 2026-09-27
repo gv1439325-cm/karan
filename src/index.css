@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-cyber: 'Orbitron', monospace, sans-serif;
+    --font-tech: 'Rajdhani', sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-tech);
+    background-color: #030712;
+    color: #e2e8f0;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-cyber {
+    font-family: var(--font-cyber);
+  }
+
+  code, pre, .font-code {
+    font-family: var(--font-code);
+  }
+}
+
+/* Custom Sci-Fi Hologram & HUD Animations */
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse-slow {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.4), inset 0 0 15px rgba(6, 182, 212, 0.3);
+    opacity: 0.9;
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(6, 182, 212, 0.8), inset 0 0 30px rgba(6, 182, 212, 0.6);
+    opacity: 1;
+  }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 16s linear infinite;
+}
+
+.animate-spin-medium {
+  animation: spin-slow 10s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Sci-fi HUD Grid Pattern */
+.bg-cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.08) 0%, rgba(3, 7, 18, 0.85) 60%, #030712 100%);
+}
+
+/* Glassmorphism Sci-Fi Panels */
+.hud-panel {
+  background: rgba(10, 18, 36, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 12px rgba(6, 182, 212, 0.05);
+}
+
+.hud-panel-active {
+  background: rgba(12, 26, 50, 0.85);
+  border-color: rgba(34, 211, 238, 0.6);
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.35), inset 0 0 16px rgba(6, 182, 212, 0.15);
+}
+
+/* Custom Scrollbar for Sci-Fi aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.8);
+}
